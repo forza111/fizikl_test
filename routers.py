@@ -10,5 +10,19 @@ router = APIRouter(tags=["Calculations API"])
 
 @router.post('/week')
 async def get_week_number(date: schemas.CheckDate):
+    """
+    ## Вычисление номера недели переданной даты, начиная с 2019-01-01. Нумерация недель в соответствии с ISO 8601
+
+    Body Parameters
+    ----------
+    JSON
+    * {calculated_date: datetime.date}  - дата, необходимая для получения номера недели
+    ##### Example {"calculated_date": "2021-12-02"}
+
+    Returns
+    -------
+    JSON:
+    * {"week_number": int} - номер недели для искомой даты
+    """
     response = week_number(date.calculated_date)
     return response
