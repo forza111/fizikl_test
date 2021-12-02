@@ -5,10 +5,10 @@ from fastapi import APIRouter, Depends
 from computation import week_number
 import schemas
 
-router = APIRouter(tags=["Calculations API"])
+router = APIRouter(tags=["Calculating the day of the week API"])
 
 
-@router.post('/week')
+@router.post('/week',response_model=schemas.WeekNumber)
 async def get_week_number(date: schemas.CheckDate):
     """
     ## Вычисление номера недели переданной даты, начиная с 2019-01-01. Нумерация недель в соответствии с ISO 8601

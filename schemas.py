@@ -17,3 +17,6 @@ class CheckDate(BaseModel):
                                                         f"you passed {calculated_date}"
 )
         return calculated_date
+
+class WeekNumber(BaseModel):
+    week_number: int
